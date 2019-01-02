@@ -1,0 +1,89 @@
+ls
+-bash-4.2$ hadoop fs -ls som
+Found 3 items
+-rwxr-xr-x   3 rajbharathcse8284 rajbharathcse8284         65 2018-11-29 15:17 som/apple
+drwxr-xr-x   - rajbharathcse8284 rajbharathcse8284          0 2018-12-01 11:50 som/country=India
+-rwxr-xr-x   3 rajbharathcse8284 rajbharathcse8284         53 2018-11-29 15:17 som/orange
+
+mkdir
+
+touchz
+
+du
+-bash-4.2$ hadoop fs -du /som/apple
+du: `/som/apple': No such file or directory
+-bash-4.2$ hadoop fs -du som/apple
+65  som/apple
+-bash-4.2$ hadoop fs -du testsqoop1
+0     testsqoop1/_SUCCESS
+5228  testsqoop1/part-m-00000
+6240  testsqoop1/part-m-00001
+
+cat
+-bash-4.2$ hadoop fs -cat som/apple
+259,nifnvf,89999
+898,cbriuvbribn,44784
+568,sojxhebckmcioe,123451
+
+copyFromLocal
+-bash-4.2$ hadoop fs -ls som
+Found 3 items
+-rwxr-xr-x   3 rajbharathcse8284 rajbharathcse8284         65 2018-11-29 15:17 som/apple
+drwxr-xr-x   - rajbharathcse8284 rajbharathcse8284          0 2018-12-01 11:50 som/country=India
+-rwxr-xr-x   3 rajbharathcse8284 rajbharathcse8284         53 2018-11-29 15:17 som/orange
+-bash-4.2$ hadoop fs -copyFromLocal /home/rajbharathcse8284/somgit/master /user/rajbharathcse8284/som
+-bash-4.2$ hadoop fs -ls som
+Found 4 items
+-rwxr-xr-x   3 rajbharathcse8284 rajbharathcse8284         65 2018-11-29 15:17 som/apple
+drwxr-xr-x   - rajbharathcse8284 rajbharathcse8284          0 2018-12-01 11:50 som/country=India
+-rw-r--r--   3 rajbharathcse8284 rajbharathcse8284          0 2019-01-02 13:40 som/master
+-rwxr-xr-x   3 rajbharathcse8284 rajbharathcse8284         53 2018-11-29 15:17 som/orange
+
+copyToLocal
+-bash-4.2$ pwd
+/home/rajbharathcse8284/somgit
+-bash-4.2$ cat test1
+hadoop
+hive
+realtime
+dfs
+-bash-4.2$ hadoop fs -copyToLocal /home/rajbharathcse8284/somgit/master /user/rajbharathcse8284/som
+copyToLocal: `/user/rajbharathcse8284/som': No such file or directory: `file:///user/rajbharathcse8284/som'
+-bash-4.2$ hadoop fs -copyToLocal /user/rajbharathcse8284/som/apple /home/rajbharathcse8284/somgit/test1
+copyToLocal: `/home/rajbharathcse8284/somgit/test1': File exists
+-bash-4.2$ hadoop fs -copyToLocal /user/rajbharathcse8284/som/apple /home/rajbharathcse8284/somgit/test3
+-bash-4.2$ ls
+master  test1  test2  test3
+-bash-4.2$ cat test3
+259,nifnvf,89999
+898,cbriuvbribn,44784
+568,sojxhebckmcioe,123451
+-bash-4.2$ 
+
+put
+-bash-4.2$ hadoop fs -put /home/rajbharathcse8284/somgit/master /user/rajbharathcse8284/som5
+-bash-4.2$ hadoop fs -ls
+Found 102 items
+
+get
+
+count
+
+-bash-4.2$ hadoop fs -count /user/rajbharathcse8284/som
+           2            4                118 /user/rajbharathcse8284/som
+-bash-4.2$ 
+
+rm
+rm -r
+
+mv
+
+cp
+
+expunge
+
+rmdit
+
+usage
+
+help
